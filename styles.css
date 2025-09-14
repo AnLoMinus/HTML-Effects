@@ -1,0 +1,590 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+.category {
+  margin-bottom: 3rem;
+}
+
+.category-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #4ecdc4;
+  text-align: center;
+}
+
+.effects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.effect-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.effect-card:hover {
+  transform: translateY(-5px);
+}
+
+.effect-description {
+  margin-top: 1rem;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* אפקט גליץ' */
+.glitch {
+  position: relative;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+    0.025em 0.04em 0 #fffc00;
+  animation: glitch 725ms infinite;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+  }
+  15% {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+  }
+  16% {
+    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+      -0.05em -0.05em 0 #fffc00;
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+      -0.05em -0.05em 0 #fffc00;
+  }
+  50% {
+    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+      0 -0.04em 0 #fffc00;
+  }
+  99% {
+    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+      0 -0.04em 0 #fffc00;
+  }
+  100% {
+    text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+      -0.04em -0.025em 0 #fffc00;
+  }
+}
+
+/* אפקט הקלדה */
+.typing {
+  overflow: hidden;
+  border-right: 2px solid white;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+/* אפקט גרדיאנט */
+.gradient {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 2rem;
+}
+
+/* אפקט hover */
+.hover-effect {
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.hover-effect:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+  letter-spacing: 2px;
+}
+
+/* אפקט ניאון */
+.neon-text {
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0ff, 0 0 30px #0ff,
+    0 0 40px #0ff;
+  animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0ff, 0 0 30px #0ff,
+      0 0 40px #0ff;
+  }
+  to {
+    text-shadow: 0 0 2.5px #fff, 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff,
+      0 0 30px #0ff;
+  }
+}
+
+/* אפקט קפיצה */
+.bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* אפקט גל - תיקון */
+.wave {
+  position: relative;
+  display: inline-block;
+}
+
+.wave span {
+  position: relative;
+  display: inline-block;
+  animation: wave 1s infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes wave {
+  0%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-10px);
+  }
+}
+
+/* אפקט אדווה - תיקון */
+.ripple {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ripple span {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* אפקט מגנטי - תיקון */
+.magnetic {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+/* אפקט זכוכית */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 10px;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* אפקט קשת */
+.rainbow {
+  background: linear-gradient(
+    to right,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082,
+    #8b00ff
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow 5s linear infinite;
+  background-size: 200% auto;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* אפקטים חדשים */
+
+/* אפקט צל */
+.shadow-text {
+  color: #fff;
+  text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #00ff00, 6px 6px 0 #0000ff;
+  transition: all 0.3s ease;
+}
+
+.shadow-text:hover {
+  transform: translate(-6px, -6px);
+  text-shadow: 2px 2px 0 #ff0000, 4px 4px 0 #00ff00, 6px 6px 0 #0000ff,
+    8px 8px 0 #ff00ff;
+}
+
+/* אפקט זוהר */
+.glow {
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6,
+    0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6,
+      0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+  }
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6,
+      0 0 40px #0073e6, 0 0 50px #0073e6, 0 0 60px #0073e6, 0 0 70px #0073e6;
+  }
+}
+
+/* אפקט סיבוב */
+.spin {
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+.spin:hover {
+  transform: rotate(360deg);
+}
+
+/* אפקט מרחף */
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* אפקטים תלת-מימדיים */
+.perspective {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.5s;
+}
+
+.perspective:hover {
+  transform: rotateX(20deg) rotateY(20deg);
+}
+
+.flip {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  transform-origin: center;
+}
+
+.flip:hover {
+  transform: rotateY(180deg);
+}
+
+.rotate-3d {
+  transform-style: preserve-3d;
+  animation: rotate3d 4s linear infinite;
+}
+
+@keyframes rotate3d {
+  0% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+/* אפקטים מורכבים */
+.matrix {
+  position: relative;
+  color: #0f0;
+  text-shadow: 0 0 5px #0f0;
+  animation: matrix 2s linear infinite;
+}
+
+@keyframes matrix {
+  0% {
+    text-shadow: 0 0 5px #0f0;
+  }
+  50% {
+    text-shadow: 0 0 20px #0f0;
+  }
+  100% {
+    text-shadow: 0 0 5px #0f0;
+  }
+}
+
+.glitch-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: glitch3d 2s infinite;
+}
+
+@keyframes glitch3d {
+  0% {
+    transform: translateZ(0) skew(0deg);
+  }
+  20% {
+    transform: translateZ(20px) skew(5deg);
+  }
+  40% {
+    transform: translateZ(-20px) skew(-5deg);
+  }
+  60% {
+    transform: translateZ(20px) skew(5deg);
+  }
+  80% {
+    transform: translateZ(-20px) skew(-5deg);
+  }
+  100% {
+    transform: translateZ(0) skew(0deg);
+  }
+}
+
+.neon-pulse {
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff00de, 0 0 30px #ff00de,
+    0 0 40px #ff00de;
+  animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff00de, 0 0 30px #ff00de,
+      0 0 40px #ff00de;
+  }
+  to {
+    text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px #ff00de, 0 0 20px #ff00de,
+      0 0 30px #ff00de;
+  }
+}
+
+/* אפקטים מותאמים אישית */
+.custom-gradient {
+  background: linear-gradient(
+    45deg,
+    var(--gradient-color-1, #ff0000),
+    var(--gradient-color-2, #00ff00),
+    var(--gradient-color-3, #0000ff)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: customGradient 5s linear infinite;
+}
+
+@keyframes customGradient {
+  0% {
+    --gradient-color-1: #ff0000;
+    --gradient-color-2: #00ff00;
+    --gradient-color-3: #0000ff;
+  }
+  33% {
+    --gradient-color-1: #00ff00;
+    --gradient-color-2: #0000ff;
+    --gradient-color-3: #ff0000;
+  }
+  66% {
+    --gradient-color-1: #0000ff;
+    --gradient-color-2: #ff0000;
+    --gradient-color-3: #00ff00;
+  }
+  100% {
+    --gradient-color-1: #ff0000;
+    --gradient-color-2: #00ff00;
+    --gradient-color-3: #0000ff;
+  }
+}
+
+.custom-shadow {
+  color: #fff;
+  text-shadow: var(--shadow-color-1, #ff0000) 2px 2px,
+    var(--shadow-color-2, #00ff00) 4px 4px,
+    var(--shadow-color-3, #0000ff) 6px 6px;
+  transition: all 0.3s ease;
+}
+
+.custom-shadow:hover {
+  --shadow-color-1: #00ff00;
+  --shadow-color-2: #0000ff;
+  --shadow-color-3: #ff0000;
+  transform: translate(-6px, -6px);
+}
+
+/* אפקט הקלדה מחזורית */
+.cycle-typing {
+  overflow: hidden;
+  border-right: 2px solid white;
+  white-space: nowrap;
+  margin: 0 auto;
+  min-width: 10ch;
+  width: 10ch;
+  font-family: inherit;
+}
+
+/* אפקט התפוגגות */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* אפקט קפיצה רכה */
+.soft-bounce {
+  animation: softBounce 1.5s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes softBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.1);
+  }
+}
+
+/* אפקט התרחבות */
+.expand {
+  animation: expand 1.5s infinite alternate;
+}
+
+@keyframes expand {
+  0% {
+    letter-spacing: 0.1em;
+    transform: scale(1);
+  }
+  100% {
+    letter-spacing: 0.5em;
+    transform: scale(1.15);
+  }
+}
+
+/* אפקט רטט */
+.shake {
+  display: inline-block;
+  animation: shake 0.5s infinite linear;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  10% {
+    transform: translate(-2px, 2px) rotate(-2deg);
+  }
+  20% {
+    transform: translate(-2px, -2px) rotate(2deg);
+  }
+  30% {
+    transform: translate(2px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(2px, -2px) rotate(2deg);
+  }
+  50% {
+    transform: translate(-2px, 2px) rotate(-2deg);
+  }
+  60% {
+    transform: translate(-2px, -2px) rotate(2deg);
+  }
+  70% {
+    transform: translate(2px, 2px) rotate(0deg);
+  }
+  80% {
+    transform: translate(2px, -2px) rotate(-2deg);
+  }
+  90% {
+    transform: translate(-2px, 2px) rotate(2deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
